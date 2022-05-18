@@ -15,14 +15,8 @@ import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
 public class ConstructorTest {
     Constructor constructor = new Constructor();
-    ChromeDriver driver;
-    @Before
-    public void setBrowserForTests () {
 
-System.setProperty("selenide.browser","/Users/sergejvavilov/yandexdriver/yandexdriver");
-driver = new ChromeDriver();
-setWebDriver(driver);
-    }
+
     @Test
     public void scrollToSouseTest() {
         open(Urls.generalUrl);
