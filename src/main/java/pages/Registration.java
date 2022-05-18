@@ -1,12 +1,10 @@
-package PO;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class Registration {
-    //Ссылка на страницу логина
-    public String loginUrl = "https://stellarburgers.nomoreparties.site/login";
     //Элемент кнопки "Зарегистироваться"
     private SelenideElement btnRegistration = $("div a[href='/register']");
     //форма регистрации Поле имя

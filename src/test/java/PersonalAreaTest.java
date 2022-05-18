@@ -1,10 +1,10 @@
-import PO.Login;
-import PO.PersonalArea;
+import pages.Login;
+import pages.PersonalArea;
 import org.junit.Assert;
 import org.junit.Test;
+import pages.Urls;
 
 import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sleep;
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class PersonalAreaTest {
@@ -13,9 +13,9 @@ Login login = new Login();
 
     @Test
     public void jumpToLK () {
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.siteExit();
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
@@ -24,9 +24,9 @@ Login login = new Login();
     }
     @Test
     public void jumpToConstructorFromLk () {
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.siteExit();
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
@@ -37,9 +37,9 @@ Login login = new Login();
     }
     @Test
     public void jumpToConstructorFromLkOfBurgerIcon () {
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.siteExit();
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
@@ -49,9 +49,9 @@ Login login = new Login();
     }
     @Test
     public void exitFromLk () {
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.siteExit();
-        open(login.generalUrl);
+        open(Urls.generalUrl);
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLinkForLogin();

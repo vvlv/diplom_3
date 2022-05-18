@@ -1,17 +1,12 @@
-package PO;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
-import static com.codeborne.selenide.WebDriverRunner.url;
 
 public class Login {
-    public String generalUrl = "https://stellarburgers.nomoreparties.site";
-    public String loginUrl = "https://stellarburgers.nomoreparties.site/login";
-    public String loginForgotUrl ="https://stellarburgers.nomoreparties.site/forgot-password";
-    public String loginRegistration = "https://stellarburgers.nomoreparties.site/register";
 
     //кнопка личный кабинет
 private SelenideElement lkLink = $(" nav > a > p");
