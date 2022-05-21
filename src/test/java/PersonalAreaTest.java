@@ -2,7 +2,6 @@ import pages.Login;
 import pages.PersonalArea;
 import org.junit.Assert;
 import org.junit.Test;
-import pages.Urls;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.url;
@@ -19,7 +18,7 @@ Login login = new Login();
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
 
     }
     @Test
@@ -31,7 +30,7 @@ Login login = new Login();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
         lk.constructorLinkInLKClick();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/",url());
+        Assert.assertEquals(Urls.generalUrl,url());
 
 
     }
@@ -44,7 +43,7 @@ Login login = new Login();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
         lk.burgerIconClick();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/",url());
+        Assert.assertEquals(Urls.generalUrl,url());
 
     }
     @Test
@@ -57,6 +56,6 @@ Login login = new Login();
         login.btnLkLinkForLogin();
         lk.lkExitClick();
         login.btnLkLinkForLogin();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/login",url());
+        Assert.assertEquals(Urls.loginUrl,url());
     }
 }

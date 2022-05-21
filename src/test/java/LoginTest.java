@@ -2,10 +2,10 @@ import pages.Login;
 import pages.PersonalArea;
 import org.junit.Assert;
 import org.junit.Test;
-import pages.Urls;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.url;
+import static org.junit.Assert.assertTrue;
 
 public class LoginTest {
     PersonalArea lk = new PersonalArea();
@@ -18,7 +18,8 @@ public class LoginTest {
         open(Urls.loginUrl);
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
+        assertTrue(login.btnExitVisibleCheck());
 
 
 
@@ -31,7 +32,8 @@ public class LoginTest {
         login.btnLoginOfGeneralPage();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
+        assertTrue(login.btnExitVisibleCheck());
     }
     @Test
     public void loginFromLKPage() {
@@ -41,7 +43,8 @@ public class LoginTest {
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
+        assertTrue(login.btnExitVisibleCheck());
     }
     @Test
     public void loginFromRegistrationPage() {
@@ -51,7 +54,9 @@ public class LoginTest {
         login.btnLkLinkForLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
+        assertTrue(login.btnExitVisibleCheck());
+
 
     }
     @Test
@@ -62,7 +67,8 @@ public class LoginTest {
         login.btnLogin();
         login.userLogin("vvlv@vvlv.ru","vvlvvvlv");
         login.btnLkLink();
-        Assert.assertEquals("https://stellarburgers.nomoreparties.site/account/profile",url());
+        Assert.assertEquals(Urls.profileUrl,url());
+        assertTrue(login.btnExitVisibleCheck());
 
 
 

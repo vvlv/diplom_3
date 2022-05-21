@@ -1,8 +1,12 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -26,9 +30,15 @@ private SelenideElement loginOfGeneralPage = $("section.BurgerConstructor_basket
     //кнопка профиль
     private SelenideElement profileLink =$("div > nav > ul > li:nth-child(1) > a");
     private SelenideElement lkExit = $("ul > li:nth-child(3) > button");
-
+    private SelenideElement btnExit = $(byText("Вход"));
 
     //Методы
+    //кнопка решистрациии
+    public boolean btnExitVisibleCheck () {
+        btnExit.shouldBe(Condition.visible, Duration.ofSeconds(10));
+        return btnExit.isDisplayed();
+    }
+
     //кнопка личный кабинет на главной
     public void btnLoginOfGeneralPage() {
         loginOfGeneralPage.click();
@@ -70,11 +80,9 @@ private SelenideElement loginOfGeneralPage = $("section.BurgerConstructor_basket
     //Метод проверяет авторизированы ли мы на странице и выходит из системы если да
     public void siteExit () {
         lkLink.click();
-        sleep(500);
-        if (profileLink.exists())
-        {
+        if (profileLink.isDisplayed()) {
             lkExitClick();
-            loginForm.shouldBe(visible);
-        }else{loginForm.shouldBe(visible);}
+        }
+        loginForm.shouldBe(visible);
     }
 }

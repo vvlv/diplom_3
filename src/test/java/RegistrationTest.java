@@ -3,7 +3,6 @@ import pages.Registration;
 import com.github.javafaker.Faker;
 import org.junit.Assert;
 import org.junit.Test;
-import pages.Urls;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
@@ -14,14 +13,14 @@ public class RegistrationTest {
     Faker faker = new Faker();
     @Test
     public void sucsesRegistration () {
-        Configuration.browser = "YANDEX.BROWSER";
+
         open(Urls.loginUrl);
         registration.btnRegistrationClick();
         registration.setFieldRegistrationName(faker.name().firstName());
         registration.setFieldRegistrationEmail(faker.internet().emailAddress());
         registration.setFieldRegistrationPassword(faker.internet().password());
         registration.btnRegistrationFormClick();
-        sleep(500);
+        registration.logInH2VisibleCheck();
         Assert.assertEquals(Urls.loginUrl,url());
     }
     @Test

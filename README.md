@@ -11,3 +11,6 @@ driver = new ChromeDriver();
 setWebDriver(driver);
 
 но мне не удалось подружить макОс с браузером
+
+Запустить в FF можно
+Configuration.browser = "firefox";

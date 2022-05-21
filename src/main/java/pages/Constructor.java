@@ -1,7 +1,10 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
@@ -20,6 +23,7 @@ private SelenideElement elem;
     public boolean getIngridientNameMenu(int i) {
         //Доступно 3 элемента 1-булки 2-соусы 3-начинки
          elem = ingridientName.get(i);
+        elem.shouldBe(Condition.visible, Duration.ofSeconds(10));
         return elem.isDisplayed();
     }
     public void bunsNotDefaultClick() {
